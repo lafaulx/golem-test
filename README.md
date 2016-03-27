@@ -1,1 +1,1 @@
-# golem-test
+# golem-webapp-example

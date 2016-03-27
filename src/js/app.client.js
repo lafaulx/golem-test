@@ -1,0 +1,19 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { browserHistory, Router, match } from 'react-router';
+import { Provider } from 'react-redux';
+import { syncHistoryWithStore } from 'react-router-redux';
+
+import routes from './routes';
+import { configureStore } from './store';
+import performContainerStaticMethod from './utils/performContainerStaticMethod';
+
+const store = configureStore(browserHistory, window.__initialState__);
+const history = syncHistoryWithStore(browserHistory, store);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <Router routes={routes} history={history} />
+  </Provider>,
+  document.getElementById('app')
+);
