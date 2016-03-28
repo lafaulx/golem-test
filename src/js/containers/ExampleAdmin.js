@@ -2,14 +2,14 @@ import React, { PropTypes } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { connect } from 'react-redux';
 
-import { create } from '../actions/golem';
+import { create } from '../actions/photographer';
 import { setScore } from '../actions/example';
 
 import Wrapper from '../components/Wrapper';
 import Example from '../components/Example';
 import ImageLink from '../components/ImageLink';
 
-function ExampleAdmin({ dispatch, example: score, golem: { images, isLoading } }) {
+function ExampleAdmin({ dispatch, example: score, photographer: { images, isLoading } }) {
   return (
     <div>
       <h3>Example 1 Admin Page</h3>
@@ -52,7 +52,7 @@ function ExampleAdmin({ dispatch, example: score, golem: { images, isLoading } }
 }
 
 ExampleAdmin.propTypes = {
-  golem: PropTypes.shape({
+  photographer: PropTypes.shape({
     images: PropTypes.array,
     isLoading: PropTypes.boolean,
   }),
@@ -61,7 +61,7 @@ ExampleAdmin.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  golem: state.golem,
+  photographer: state.photographer,
   example: state.example,
 });
 

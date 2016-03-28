@@ -1,5 +1,5 @@
 {
-  "name": "golem-webapp-example",
+  "name": "photographer-webapp-example",
   "version": "1.0.0",
   "description": "Golem webapp example",
   "scripts": {
@@ -7,14 +7,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lafaulx/golem-webapp-example.git"
+    "url": "git+https://github.com/lafaulx/photographer-webapp-example.git"
   },
   "author": "Yaroslav Kravchenko",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lafaulx/golem-webapp-example/issues"
+    "url": "https://github.com/lafaulx/photographer-webapp-example/issues"
   },
-  "homepage": "https://github.com/lafaulx/golem-webapp-example#readme",
+  "homepage": "https://github.com/lafaulx/photographer-webapp-example#readme",
   "dependencies": {
     "amqplib": "^0.4.1",
     "babel-loader": "^6.2.4",

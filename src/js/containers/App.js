@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 function App({ children }) {
   return (
     <div>
-      <h1>Golem webapp example</h1>
+      <h1>Photographer webapp example</h1>
 
       {children}
     </div>

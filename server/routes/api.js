@@ -5,7 +5,7 @@ const uuid = require('node-uuid');
 const router = express.Router();
 
 module.exports = function(channel) {
-  router.post('/golem/create', function(req, res) {
+  router.post('/photographer/create', function(req, res) {
     const data = req.body;
 
     channel.assertQueue('', { exclusive: true, autoDelete: true }, function(err, q) {
@@ -17,7 +17,7 @@ module.exports = function(channel) {
         }
       }, {noAck: true});
 
-      channel.sendToQueue('glm_queue',
+      channel.sendToQueue('pht_queue',
         new Buffer(JSON.stringify(data)),
         { correlationId: corr, replyTo: q.queue });
     });

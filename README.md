@@ -1,1 +1,1 @@
-# golem-webapp-example
+# Photographer webapp example

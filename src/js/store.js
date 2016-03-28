@@ -1,5 +1,5 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import golemReducer from './reducers/golem';
+import photographerReducer from './reducers/photographer';
 import exampleReducer from './reducers/example';
 import { apiMiddleware } from 'redux-api-middleware';
 
@@ -7,7 +7,7 @@ import { routerReducer, routerMiddleware } from 'react-router-redux';
 
 export function configureStore(history, initialState) {
   const reducer = combineReducers({
-    golem: golemReducer,
+    photographer: photographerReducer,
     example: exampleReducer,
     routing: routerReducer,
   });

@@ -17,3 +17,8 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('app')
 );
+
+history.listen((location) =>
+  match({ history, routes, location: location.path }, (error, redirectLocation, renderProps) =>
+    performContainerStaticMethod(renderProps, store))
+);
