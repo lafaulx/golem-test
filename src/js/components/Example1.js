@@ -4,17 +4,25 @@ import radium from 'radium';
 const styles = {
   parent: {
     base: {
-      width: '1200px',
-      height: '630px',
+      width: '600px',
+      height: '315px',
       backgroundImage: 'url("http://q-ec.bstatic.com/data/xphoto/1872x1404/331/3318769.jpg")',
+      backgroundSize: 'cover',
+      position: 'relative',
     },
   },
   header: {
     base: {
-      fontSize: '70px',
+      fontSize: '50px',
+      fontFamily: 'Helvetica Neue',
       textAlign: 'center',
-      lineHeight: '630px',
       margin: '0',
+      position: 'absolute',
+      top: '30px',
+      right: '30px',
+      backgroundColor: 'white',
+      padding: '15px',
+      borderRadius: '50%',
     },
   },
 };
@@ -22,7 +30,7 @@ const styles = {
 function Example1({ score }) {
   return (
     <div style={[styles.parent.base]}>
-      <h3 style={[styles.header.base]}>Average review score: {score}</h3>
+      <h3 style={[styles.header.base]}>{score}</h3>
     </div>
   );
 }

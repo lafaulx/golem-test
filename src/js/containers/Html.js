@@ -8,7 +8,7 @@ export default function Html({ store, content, isError }) {
     <html>
       <head>
         <meta charSet="utf-8" />
-        <title>Colossus</title>
+        <title>Golem webapp example</title>
 
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui" />

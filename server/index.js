@@ -12,7 +12,7 @@ const apiRoutes = require('./routes/api');
 const webRoutes = require('./routes/web');
 
 const logger = createLogger({
-  name: 'colossus',
+  name: 'golem-webapp-example',
   hostname: config.NODEJS_ADDR,
 });
 

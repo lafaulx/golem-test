@@ -12,34 +12,39 @@ function Index({ dispatch, example1: score, golem: { images, isLoading } }) {
     <div>
       <h3>Index Page</h3>
 
-      {images}
-
       {isLoading &&
         <h4>Loading...</h4>
       }
 
       {!isLoading &&
-        <button onClick={function onIncrementClick() {
-          const data = {
-            html: renderToStaticMarkup(<Example1 score={score} />),
-            width: 1200,
-            height: 630,
-          };
+        <div>
+          <button onClick={function onIncrementClick() {
+            const data = {
+              html: renderToStaticMarkup(<Example1 score={score} />),
+              width: 600,
+              height: 315,
+            };
 
-          dispatch(create(data));
-        }}
-        >Create image</button>
+            dispatch(create(data));
+          }}
+          >Create image</button>
+
+          <h3>Uploaded images</h3>
+          {images}
+        </div>
       }
 
-      <label>
-        Score:
-        <input onKeyUp={function onScoreChange(e) {
-          dispatch(setScore(e.currentTarget.value));
-        }} value={score}
-        />
-      </label>
+      <div>
+        <label>
+          Score:
+          <input onChange={function onScoreChange(e) {
+            dispatch(setScore(e.target.value));
+          }} value={score}
+          />
+        </label>
+      </div>
 
-      <Example1 score={'9.3'} />
+      <Example1 score={score} />
     </div>
   );
 }
