@@ -27,7 +27,7 @@ const styles = {
   },
 };
 
-function Example1({ score }) {
+function Example({ score }) {
   return (
     <div style={[styles.parent.base]}>
       <h3 style={[styles.header.base]}>{score}</h3>
@@ -35,8 +35,8 @@ function Example1({ score }) {
   );
 }
 
-Example1.propTypes = {
+Example.propTypes = {
   score: PropTypes.string.isRequired,
 };
 
-export default radium(Example1);
+export default radium(Example);

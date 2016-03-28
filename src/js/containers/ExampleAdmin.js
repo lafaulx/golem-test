@@ -3,14 +3,16 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { connect } from 'react-redux';
 
 import { create } from '../actions/golem';
-import { setScore } from '../actions/example1';
+import { setScore } from '../actions/example';
 
-import Example1 from '../components/Example1';
+import Wrapper from '../components/Wrapper';
+import Example from '../components/Example';
+import ImageLink from '../components/ImageLink';
 
-function Index({ dispatch, example1: score, golem: { images, isLoading } }) {
+function ExampleAdmin({ dispatch, example: score, golem: { images, isLoading } }) {
   return (
     <div>
-      <h3>Index Page</h3>
+      <h3>Example 1 Admin Page</h3>
 
       {isLoading &&
         <h4>Loading...</h4>
@@ -20,7 +22,7 @@ function Index({ dispatch, example1: score, golem: { images, isLoading } }) {
         <div>
           <button onClick={function onIncrementClick() {
             const data = {
-              html: renderToStaticMarkup(<Example1 score={score} />),
+              html: renderToStaticMarkup(<Wrapper><Example score={score} /></Wrapper>),
               width: 600,
               height: 315,
             };
@@ -30,7 +32,7 @@ function Index({ dispatch, example1: score, golem: { images, isLoading } }) {
           >Create image</button>
 
           <h3>Uploaded images</h3>
-          {images}
+          {images.map((img) => (<ImageLink img={img} />))}
         </div>
       }
 
@@ -44,23 +46,23 @@ function Index({ dispatch, example1: score, golem: { images, isLoading } }) {
         </label>
       </div>
 
-      <Example1 score={score} />
+      <Example score={score} />
     </div>
   );
 }
 
-Index.propTypes = {
+ExampleAdmin.propTypes = {
   golem: PropTypes.shape({
     images: PropTypes.array,
     isLoading: PropTypes.boolean,
   }),
-  example1: PropTypes.string,
+  example: PropTypes.string,
   dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   golem: state.golem,
-  example1: state.example1,
+  example: state.example,
 });
 
-export default connect(mapStateToProps)(Index);
+export default connect(mapStateToProps)(ExampleAdmin);

@@ -13,7 +13,7 @@ module.exports = function(channel) {
 
       channel.consume(q.queue, function(msg) {
         if (msg.properties.correlationId == corr) {
-          res.send({ filename: JSON.parse(msg.content.toString()).id });
+          res.send({ url: JSON.parse(msg.content.toString()).url });
         }
       }, {noAck: true});
 
