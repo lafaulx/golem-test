@@ -7,14 +7,17 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import routes from './routes';
 import { configureStore } from './store';
 import performContainerStaticMethod from './utils/performContainerStaticMethod';
+import Wrapper from './containers/Wrapper';
 
 const store = configureStore(browserHistory, window.__initialState__);
 const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router routes={routes} history={history} />
-  </Provider>,
+    <Provider store={store}>
+      <Wrapper>
+        <Router routes={routes} history={history} />
+      </Wrapper>
+    </Provider>,
   document.getElementById('app')
 );
 

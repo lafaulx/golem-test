@@ -25,7 +25,7 @@ function Wrapper({ children }) {
 }
 
 Wrapper.propTypes = {
-  children: PropTypes.array.isRequired,
+  children: PropTypes.object.isRequired,
 };
 
 export default radium(Wrapper);

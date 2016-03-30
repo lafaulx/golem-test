@@ -8,8 +8,9 @@ import routes from './routes';
 import { configureStore } from './store';
 import performContainerStaticMethod from './utils/performContainerStaticMethod';
 import Html from './containers/Html';
+import Wrapper from './containers/Wrapper';
 
-export function renderApp(url) {
+export function renderApp(url, ua) {
   return new Promise((resolve, reject) => {
     const memoryHistory = createMemoryHistory(url);
     const store = configureStore(memoryHistory);
@@ -26,9 +27,11 @@ export function renderApp(url) {
       } else if (renderProps) {
         performContainerStaticMethod(renderProps, store).then(() => {
           const content = renderToString(
-            <Provider store={store}>
-              <RouterContext {...renderProps} />
-            </Provider>
+              <Provider store={store}>
+                <Wrapper radiumConfig={{ userAgent: ua }}>
+                  <RouterContext {...renderProps} />
+                </Wrapper>
+              </Provider>
           );
 
           const htmlString = renderToString(<Html content={content} store={store} />);
